@@ -84,8 +84,8 @@ export default {
             uid,
             username: this.username,
           });
-          //redirects the user to profile page
-          this.$router.push("/secret/profile");
+          //redirects the user to home page
+          this.$router.push("/secret/home");
         } catch (err) {
           this.error = err.message;
         }

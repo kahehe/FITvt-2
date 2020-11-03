@@ -4,20 +4,20 @@ import router from './router'
 import store from './store'
 import firebase from 'firebase/app'
 import 'firebase/firestore';
-import config
+
 
 Vue.config.productionTip = false;
 
  // Your web app's Firebase configuration
  var firebaseConfig = {
-    apiKey: 
-    authDomain: 
-    databaseURL: 
-    projectId: 
-    storageBucket: 
-    messagingSenderId: 
-    appId: 
-    measurementId: 
+    apiKey: "AIzaSyDIEA01msH8_f6PB3eIP6WOtyX5Oovz_sk",
+    authDomain: "fitvt-4d8bd.firebaseapp.com",
+    databaseURL: "https://fitvt-4d8bd.firebaseio.com",
+    projectId: "fitvt-4d8bd",
+    storageBucket: "fitvt-4d8bd.appspot.com",
+    messagingSenderId: "114620864183",
+    appId: "1:114620864183:web:50fbed92a03dd34a7d9f32",
+    measurementId: "G-F5PWXHRGPM" 
   };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

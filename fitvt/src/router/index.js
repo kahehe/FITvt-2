@@ -17,6 +17,12 @@ const routes = [
     component: () => import('../views/login.vue'),
     meta:{requiresAuth:false}
   },
+  {
+    path: '/secret/home',
+    name: 'home',
+    component: () => import('../views/secret/home.vue'),
+    meta:{requiresAuth:true}
+  }
 ]
 
 const router = new VueRouter({
