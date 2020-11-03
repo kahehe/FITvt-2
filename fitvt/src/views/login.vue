@@ -53,7 +53,7 @@ export default {
       let uid = res.user.uid;
       this.$store.commit("setUID", uid);
       localStorage.setItem("UID", uid);
-      this.$router.push("/secret/profile");
+      this.$router.push("/secret/home");
     },
   },
 };
