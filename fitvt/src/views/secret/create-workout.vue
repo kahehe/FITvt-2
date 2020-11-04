@@ -11,6 +11,12 @@
         <br />
         <input type="text" id="title" v-model="title" />
       </section>
+      <section id="workout-desc">
+        <h3>Description:</h3>
+        <br />
+        <br />
+        <textarea id="" cols="30" rows="10" v-model="description"></textarea>
+      </section>
     </main>
     <aside class="right">
       <CalendarChart />
