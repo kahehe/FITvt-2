@@ -29,7 +29,8 @@
         <br /><br />
         <input type="file" @change="inputChange" />
       </section>
-      
+
+      <button class="btn" @click="newWorkout">CREATE</button>
       </main>
     <aside class="right">
       <CalendarChart />
@@ -66,6 +67,52 @@ export default {
     inputChange(e) {
       let file = e.target.files[0];
       this.file = file;
+    },
+    newWorkout() {
+      //getting the description and title from the selected workout
+      let select = this.select.split("$");
+      let wdescription = select[0];
+      let wtitle = select[1];
+      //enable the spinner when we are uploading to firestore
+      this.loading = true;
+      //make sure that all of the inputs have recieved a valid value
+      if (this.file && this.title.length > 3) {
+        //create a storage ref
+        let storageRef = firebase.storage().ref(`photos/${this.file.name}`);
+        //upload the file to storage ref
+        let task = storageRef.put(this.file);
+        task.on(
+          "state_changed",
+          function progress() {
+            console.log("in progress");
+          },
+          function error(err) {
+            console.log(err);
+          },
+          async () => {
+            try {
+              //get the url of the image from storage and save it in firestore
+              let url = await task.snapshot.ref.getDownloadURL();
+              this.url = url;
+              console.log(url);
+              let uid = this.$store.state.UID || localStorage.getItem("UID");
+              await window.db.collection("post").add({
+                title: this.title,
+                url: this.url,
+                wtitle,
+                wdescription,
+                uid,
+              });
+              this.loading = false;
+              this.$router.push("/secret/profile");
+            } catch (error) {
+              console.log(error);
+            }
+          }
+        );
+      } else {
+        this.error = "make sure that your title,workout and image is valid";
+      }
     },
   },
   async mounted() {
