@@ -17,6 +17,7 @@
         <br />
         <textarea id="" cols="30" rows="10" v-model="description"></textarea>
       </section>
+      <button class="btn" @click="newWorkout">CREATE</button>
     </main>
     <aside class="right">
       <CalendarChart />
@@ -29,7 +30,7 @@ import SideBar from "@/components/secret/SideBar";
 import CalendarChart from "@/components/secret/Calendar-Chart";
 import sNavBar from "@/components/secret/NavBar";
 import Spinner from "@/components/Spinner";
-//import firebase from "firebase/app";
+import firebase from "firebase/app";
 export default {
   components: {
     SideBar,
@@ -44,6 +45,20 @@ export default {
       loading: false,
       error: "",
     };
+  },
+  methods: {
+    async newWorkout() {
+      this.$store.commit("setActivity");
+      this.loading = true;
+       await window.db.collection("workout").add({
+        title: this.title,
+        description: this.description,
+        uid: localStorage.getItem("UID"),
+      });
+      this.loading = false;
+      this.title = "";
+      this.description = "";
+    },
   },
 };
 </script>
