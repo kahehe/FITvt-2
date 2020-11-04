@@ -126,6 +126,75 @@ export default {
     });
   },
 };
+</script>
 
 <style scoped>
+.main {
+	 display: flex;
+}
+ aside, main {
+	 text-align: center;
+	 padding: 15px;
+	 min-height: 100%;
+}
+ .left {
+	 width: 20%;
+	 max-width: 350px;
+	 background-color: #212936;
+}
+ main {
+	 width: 50%;
+	 background-color: #2b3648;
+}
+ .right {
+	 width: 30%;
+	 max-width: 500px;
+	 background-color: #2b3648;
+}
+ 
+ main section {
+	 padding: 15px;
+	 color: #eee;
+	 margin: 1rem 0;
+	 text-align: center;
+	 background-color: #212936;
+}
+ main section h3 {
+	 float: left;
+}
+ main #workout-select select {
+	 background-color: #212936;
+	 color: #eee;
+}
+ main #workout-select select span {
+	 display: none;
+}
+ main #workout-title input, main #post-title input {
+	 width: 50%;
+	 background-color: #a7b5cb;
+	 height: 10vh;
+	 border: none;
+	 border-radius: 15px;
+}
+ main #workout-image input {
+	 background-color: #a7b5cb;
+}
+ main button {
+	 background-color: #008cff !important;
+	 border-radius: 20px;
+	 color: #eee;
+}
+ 
+ .btn {
+	 background-color: transparent;
+	 padding: 10px 20px;
+	 cursor: pointer;
+	 position: relative;
+	 outline: none;
+	 overflow: hidden;
+	 letter-spacing: 1.2px;
+	 border: none;
+	 font-size: 1.1rem;
+}
+
 </style>
