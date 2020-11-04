@@ -64,4 +64,27 @@ export default {
 </script>
 
 <style scoped>
+.main {
+	 display: flex;
+}
+ aside, main {
+	 text-align: center;
+	 padding: 15px;
+	 min-height: 100%;
+}
+ .left {
+	 width: 20%;
+	 max-width: 350px;
+	 background-color: #212936;
+}
+ main {
+	 width: 50%;
+	 background-color: #2b3648;
+}
+ .right {
+	 width: 30%;
+	 max-width: 500px;
+	 background-color: #2b3648;
+}
+ 
 </style>
