@@ -86,6 +86,7 @@ export default {
 	 max-width: 500px;
 	 background-color: #2b3648;
 }
+
  main section {
 	 padding: 15px;
 	 color: #eee;
@@ -95,13 +96,6 @@ export default {
 }
  main section h3 {
 	 float: left;
-}
- main #workout-select select {
-	 background-color: #212936;
-	 color: #eee;
-}
- main #workout-select select span {
-	 display: none;
 }
  main #workout-title input, main #post-title input {
 	 width: 50%;
@@ -121,13 +115,21 @@ export default {
 	 border-radius: 15px;
 	 padding: 20px;
 }
- main #workout-image input {
-	 background-color: #a7b5cb;
-}
  main button {
 	 background-color: #008cff !important;
 	 border-radius: 20px;
 	 color: #eee;
 }
- 
+
+ .btn {
+	 background-color: transparent;
+	 padding: 10px 20px;
+	 cursor: pointer;
+	 position: relative;
+	 outline: none;
+	 overflow: hidden;
+	 letter-spacing: 1.2px;
+	 border: none;
+	 font-size: 1.1rem;
+}
 </style>
