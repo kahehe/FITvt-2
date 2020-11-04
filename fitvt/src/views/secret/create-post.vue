@@ -17,6 +17,19 @@
           </option>
         </select>
       </section>
+
+      <section id="post-title">
+        <h3>Title of Post:</h3>
+        <br />
+        <br />
+        <input type="text" id="title" v-model="title" />
+      </section>
+      <section id="workout-image">
+        <h3>Image:</h3>
+        <br /><br />
+        <input type="file" @change="inputChange" />
+      </section>
+      
       </main>
     <aside class="right">
       <CalendarChart />
@@ -48,6 +61,22 @@ export default {
       workouts: [],
       select: "",
     };
+  },
+  methods: {
+    inputChange(e) {
+      let file = e.target.files[0];
+      this.file = file;
+    },
+  },
+  async mounted() {
+      this.$store.commit("setActivity");
+    let res = await window.db
+      .collection("workout")
+      .where("uid", "==", localStorage.getItem("UID"))
+      .get();
+    res.docs.forEach((workout) => {
+      this.workouts.push(workout.data());
+    });
   },
 };
 
