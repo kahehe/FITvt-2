@@ -22,6 +22,18 @@ const routes = [
     name: 'home',
     component: () => import('../views/secret/home.vue'),
     meta:{requiresAuth:true}
+  },
+  {
+    path: '/secret/profile/create-workout',
+    name: 'create-workout',
+    component: () => import('../views/secret/create-workout.vue'),
+    meta:{requiresAuth:true}
+  },
+  {
+    path: '/secret/create-post',
+    name: 'create-post',
+    component: () => import('../views/secret/create-post.vue'),
+    meta:{requiresAuth:true}
   }
 ]
 
