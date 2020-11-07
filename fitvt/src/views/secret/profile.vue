@@ -24,6 +24,60 @@
         </ul>
       </section>
 
+       <section id="saved-workouts">
+        <h3><span>Saved Workouts</span></h3>
+        <ul>
+          <li v-for="(workout, index) in savedWorkouts" :key="index">
+            <p @click="openSavedW(workout)">
+              {{ workout.title }}
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section id="my-posts">
+        <h3><span>my Posts</span></h3>
+        <br />
+        <div class="create-workout">
+          <router-link to="/secret/create-post">
+            <i class="fas fa-plus"></i>
+            make your post
+          </router-link>
+        </div>
+        <div class="single-post" v-for="(post, index) in myPosts" :key="index">
+          <button id="delete-btn" @click="deletePost(post.documentId)">
+            delete
+          </button>
+          <div class="profile">
+            <p>{{ post.username }}</p>
+          </div>
+
+          <div class="title_image">
+            <h1>{{ post.title }}</h1>
+            <div class="desc">
+              <h4>Exercise</h4>
+              <p>{{ post.wdescription }}</p>
+              <img :src="post.url" alt="exercise_image" />
+            </div>
+          </div>
+          <div class="icons">
+            <i
+              class="fas fa-comment fa-2x"
+              title="see the comments"
+              @click="showComments(post.documentId)"
+            ></i>
+            <i
+              class="fas fa-heart fa-2x"
+              @click="like(post.documentId)"
+              :id="post.documentId"
+            ></i>
+            <span
+              style="font-size: 1.4rem; margin-left: 5px"
+              id="like_amount"
+              >{{ likes[post.documentId] }}</span
+            >
+          </div>
+        </div>
+      </section>
     </main>
     <aside class="right">
       <CalendarChart />
@@ -75,7 +129,93 @@ export default {
         //redirect to the same page(profile)
         this.$router.go("/secret/profile");
       });
-    }
+    },
+    openSavedW(workout) {
+      console.log(workout);
+      var div = document.createElement("div");
+      div.innerHTML = `
+      <h2>${workout.title}</h2>
+      <p>${workout.description}</p>
+      <input hidden value=${workout.documentId} id='documentId'>
+      `;
+      swal({
+        content: div,
+        buttons: ["Delete this Post", "ok"],
+      });
+      let deleteBtn = document.querySelector(".swal-button--cancel");
+      deleteBtn.addEventListener("click", async () => {
+        let documentId = document.querySelector("#documentId");
+        await window.db.collection("saved-post").doc(documentId.value).delete();
+        this.$router.go("/secret/profile");
+      });
+    },
+    async deletePost(docId) {
+      await window.db.collection("post").doc(docId).delete();
+      this.$router.go("/secret/profile");
+    },
+
+    async showComments(docId) {
+      //clearing the array for not adding the new data to current
+      this.comments = [];
+      //getting all of the objects which is stored in array
+      let res = await window.db
+        .collection("comment")
+        .where(firebase.firestore.FieldPath.documentId(), "==", docId)
+        .get();
+      res.docs.length &&
+        res.docs[0].data().text.forEach((comment) => {
+          this.comments.push(comment);
+        });
+      //creating a <section><section/> for displaying the comments
+      let swalContent = document.createElement("section");
+      swalContent.innerHTML = "";
+      //looping thorugh the comments array[name,comment] and outputing a div for each item
+      this.comments.forEach((comment) => {
+        let div = document.createElement("div");
+        div.style =
+          "display:flex;justify-content:space-between;margin-bottom:5px;border:1px solid gray;padding:10px";
+        div.innerHTML = `
+          <h4>${comment.name}</h4>
+          <h5>${comment.comment}</h5>
+          `;
+        swalContent.append(div);
+      });
+      swal({
+        title: "comments for this post",
+        content: swalContent,
+        allowOutsideClick: "true",
+      });
+    },
+
+    async like(docId) {
+      console.log(docId);
+      try {
+        //check if there is a document (not the first time that we want to add smth)
+        await window.db
+          .collection("like")
+          .doc(docId)
+          .update({
+            text: firebase.firestore.FieldValue.arrayUnion({
+              uid: localStorage.getItem("UID"),
+            }),
+          });
+      } catch (err) {
+        //if it is the first time that we want to add smth to the collection
+        if (err.message.slice(0, 21) == "No document to update") {
+          await window.db
+            .collection("like")
+            .doc(docId)
+            .set({
+              text: [
+                {
+                  uid: localStorage.getItem("UID"),
+                },
+              ],
+            });
+        }
+      }
+      this.$forceUpdate();
+    },
   },
   async mounted() {
     let uid = this.$store.state.UID || localStorage.getItem("UID");
