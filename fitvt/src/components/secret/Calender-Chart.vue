@@ -16,6 +16,12 @@
       ></trend>
       <span>last 7 days</span>
     </div>
+    <div class="create-workout" v-if="!isInCreatePage">
+      <router-link to="/secret/profile/create-workout">
+        <i class="fas fa-plus"></i>
+        create new workout
+      </router-link>
+    </div>
   </section>
 </template>
 
@@ -26,6 +32,11 @@ export default {
       date: new Date(),
       data: [],
     };
+  },
+  computed: {
+    isInCreatePage() {
+      return this.$router.currentRoute.path == "/secret/profile/create-workout";
+    },
   },
   mounted() {
     this.data = this.$store.state.activity;
@@ -60,5 +71,21 @@ section .chart {
 section .chart #chart {
 	background-color: #212936;
 }
+section .create-workout {
+	text-align: center;
+	margin-top: 2rem;
+	background-color: #212936;
+	padding: 2rem 1rem;
+}
+ section .create-workout a {
+	padding: 10px 15px;
+	margin: 20px 0;
+	background-color: #008cff;
+	border-radius: 20px;
+	color: #eee;
+	text-decoration: none;
+	line-break: anywhere;
+}
+
 
 </style>

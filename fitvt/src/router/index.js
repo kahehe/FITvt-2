@@ -34,6 +34,18 @@ const routes = [
     name: 'create-post',
     component: () => import('../views/secret/create-post.vue'),
     meta:{requiresAuth:true}
+  },
+  {
+    path: '/secret/chat',
+    name: 'chat',
+    component: () => import('../views/secret/chat.vue'),
+    meta:{requiresAuth:true}
+  },
+  {
+    path: '/secret/chat/user/:id',
+    name: 'chat-single',
+    component: () => import('../views/secret/chat-single.vue'),
+    meta:{requiresAuth:true}
   }
 ]
 
