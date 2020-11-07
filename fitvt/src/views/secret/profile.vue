@@ -276,4 +276,59 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+main section {
+	 padding: 15px;
+	 background-color: #212936;
+	 color: #eee;
+	 margin: 2rem 0;
+}
+main section h3 span {
+	 padding: 5px 10px;
+	 background-color: #677fa5;
+	 border-radius: 20px;
+}
+main section ul {
+	 padding: 10px;
+}
+main section ul li p {
+	 text-decoration: none;
+	 position: relative;
+	 left: 0;
+	 color: unset;
+	 float: left;
+	 cursor: pointer;
+	 text-decoration: underline;
+}
+
+.right {
+	 width: 30%;
+	 max-width: 500px;
+	 background-color: #2b3648;
+}
+.left {
+	 width: 20%;
+	 max-width: 350px;
+	 background-color: #212936;
+}aside, main {
+	 text-align: center;
+	 padding: 15px;
+	 min-height: 100%;
+}
+
+.create-workout {
+	 text-align: center;
+	 margin-top: -1rem;
+	 background-color: #212936;
+	 padding: 2rem 1rem;
+}
+ .create-workout a {
+	 padding: 10px 15px;
+	 margin: 20px 0;
+	 background-color: #008cff;
+	 border-radius: 20px;
+	 color: #eee;
+	 text-decoration: none;
+	 line-break: anywhere;
+}
+ 
 </style>
