@@ -20,6 +20,57 @@
         </div>
       </section>
 
+    <section id="my-posts" style="color: #fff">
+        <h1 style="margin: 2rem auto; color: white">
+          <span>Posts of {{ username }}</span>
+        </h1>
+        <br />
+        <div class="single-post" v-for="(post, index) in posts" :key="index">
+          <div class="profile">
+            <img :src="profileURL" alt="avatar" id="avatar" />
+            <p>{{ post.username }}</p>
+          </div>
+
+          <div class="title_image">
+            <h1>{{ post.title }}</h1>
+            <div class="desc">
+              <h4>Exercise</h4>
+              <p>{{ post.wdescription }}</p>
+              <img :src="post.url" alt="exercise_image" />
+            </div>
+          </div>
+          <div class="icons">
+            <i
+              class="fas fa-save fa-2x"
+              title="save this post"
+              @click="savePost(post)"
+              :id="
+                post.title.split(' ')[0] +
+                '_' +
+                (post.title.split(' ')[1] && post.title.split(' ')[1][0])
+              "
+            >
+            </i>
+            <i
+              class="fas fa-comment fa-2x"
+              title="see the comments"
+              @click="showComments(post.docId)"
+            ></i>
+            <i class="fas fa-heart fa-2x" @click="like(post.docId)" :id="post.docId"></i>
+        <span style="font-size:1.4rem;margin-left:5px;" id="like_amount">{{likes[post.docId]}}</span>
+          </div>
+          <form>
+            <input
+              type="text"
+              placeholder="your comment..."
+              v-model="comment"
+            />
+            <button @click.prevent="submitComment(post.docId)">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </section>
     </main>
     <aside class="right">
       <CalendarChart />
@@ -184,6 +235,50 @@ export default {
         button: "ok",
       });
     },
+    async fetchWorkout() {
+      //fetch the workouts of respective person
+      let res2 = await window.db
+        .collection("workout")
+        .where("uid", "==", this.$route.params.id)
+        .get();
+      let array = [];
+      res2.docs.forEach((post) => {
+        array.push(Object.assign(post.data(), { documentId: post.id }));
+      });
+      //remove duplicates
+      this.workouts = array.filter(
+        (v, i, a) => a.findIndex((t) => t.title === v.title) === i
+      );
+    },
+
+    async like(docId){
+      try {
+        //check if there is a document (not the first time that we want to add smth)
+        await window.db
+          .collection("like")
+          .doc(docId)
+          .update({
+            text: firebase.firestore.FieldValue.arrayUnion({
+              uid:localStorage.getItem('UID')
+            }),
+          });
+      } catch (err) {
+        //if it is the first time that we want to add smth to the collection
+        if (err.message.slice(0, 21) == "No document to update") {
+          await window.db
+            .collection("like")
+            .doc(docId)
+            .set({
+              text: [
+                {
+                  uid:localStorage.getItem('UID')
+                },
+              ],
+            });
+        }
+      }
+      this.$forceUpdate();
+    }
   },
 
   watch: {
