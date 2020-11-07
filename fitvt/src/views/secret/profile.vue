@@ -275,7 +275,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 main section {
 	 padding: 15px;
 	 background-color: #212936;
@@ -330,5 +330,4 @@ main section ul li p {
 	 text-decoration: none;
 	 line-break: anywhere;
 }
- 
 </style>
