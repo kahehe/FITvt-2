@@ -139,7 +139,7 @@ export default {
 <style scoped>
 
 .main {
-	 display: flex;
+	display: flex;
 }
 aside, main {
 	text-align: center;
