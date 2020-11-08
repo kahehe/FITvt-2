@@ -18,14 +18,14 @@ Vue.config.productionTip = false;
 
  // Your web app's Firebase configuration
  var firebaseConfig = {
-    apiKey: 
-    authDomain: 
-    databaseURL: 
-    projectId: 
-    storageBucket: 
-    messagingSenderId: 
-    appId: 
-    measurementId: 
+    apiKey: "AIzaSyCFKSOgB7TPSe9tu0Gle9Ypz_fqiQuHG5Q",
+    authDomain: "fitvt-5ff06.firebaseapp.com",
+    databaseURL: "https://fitvt-5ff06.firebaseio.com",
+    projectId: "fitvt-5ff06",
+    storageBucket: "fitvt-5ff06.appspot.com",
+    messagingSenderId: "601793372028",
+    appId: "1:601793372028:web:bdbd1105d494b39c9a8ef9",
+    measurementId: "G-JFB3V1CEP9"
   };
   
 // Initialize Firebase
