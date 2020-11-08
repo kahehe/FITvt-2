@@ -6,17 +6,17 @@
       <section id="feedback">
         <h2>Help us grow by sharing any feedback with us!</h2>
         <br /><br /><br />
-        <label>kind of feedback:</label>
+        <label>Type of feedback:</label>
         <br />
         <select v-model="feedbackKind">
-          <option value="bugs">bugs</option>
-          <option value="general">general feedback</option>
+          <option value="bugs">Bugs</option>
+          <option value="general">General Feedback</option>
         </select>
         <br />
         <br />
         <br />
         <br />
-        <label>datails:</label><br />
+        <label>Details:</label><br />
         <textarea
           id=""
           cols="70"
@@ -24,7 +24,7 @@
           v-model="feedbackDescription"
           placeholder="details of your feedback"
         >
-details of feedback</textarea
+Details of feedback</textarea
         >
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <button class="btn" @click="submit" v-show="showSubmitBtn">
