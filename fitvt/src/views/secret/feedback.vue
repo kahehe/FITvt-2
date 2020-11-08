@@ -81,3 +81,60 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#feedback {
+	 margin: 2rem 0;
+}
+ #feedback h2 {
+	 color: #eee;
+}
+ #feedback textarea, #feedback select {
+	 background-color: #212936;
+	 color: #aeaeae;
+	 float: left;
+	 padding: 0.5rem;
+}
+ #feedback label {
+	 color: #aeaeae;
+	 float: left;
+}
+ #feedback button {
+	 float: left;
+	 background-color: #212936;
+	 color: #eee;
+}
+ .main {
+	 display: flex;
+}
+ aside, main {
+	 text-align: center;
+	 padding: 15px;
+	 min-height: 100%;
+}
+ .left {
+	 width: 20%;
+	 max-width: 350px;
+	 background-color: #212936;
+}
+ main {
+	 width: 50%;
+	 background-color: #2b3648;
+}
+ .right {
+	 width: 30%;
+	 max-width: 500px;
+	 background-color: #2b3648;
+}
+ .btn {
+	 background-color: transparent;
+	 padding: 10px 20px;
+	 cursor: pointer;
+	 position: relative;
+	 outline: none;
+	 overflow: hidden;
+	 letter-spacing: 1.2px;
+	 border: none;
+	 font-size: 1.1rem;
+}
+</style>
