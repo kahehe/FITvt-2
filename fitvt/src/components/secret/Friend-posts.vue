@@ -213,90 +213,88 @@ export default {
 <style scoped>
 
 #home {
-	 margin: 2rem 0;
+	margin: 2rem 0;
 }
  #home p, #home h1, #home h4 {
-	 color: #eee;
+	color: #eee;
 }
  #home .single-post {
-	 background-color: #42536e;
-	 margin-bottom: 100px;
-	 border-radius: 20px;
-	 position: relative;
+	background-color: #42536e;
+	margin-bottom: 100px;
+	border-radius: 20px;
+	position: relative;
 }
  #home .single-post .profile {
-	 display: flex;
-	 align-items: center;
+	display: flex;
+	align-items: center;
 }
  #home .single-post .profile #avatar {
-	 vertical-align: middle;
-	 width: 55px;
-	 height: 55px;
-	 border-radius: 50%;
-	 margin: 10px 5px 0 10px;
+	vertical-align: middle;
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	margin: 10px 5px 0 10px;
 }
  #home .single-post .title_image {
-	 display: flex;
-	 justify-content: space-between;
-	 align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
  #home .single-post .title_image h1 {
-	 margin: 0 10px;
-	 font-size: 3rem;
-	 max-width: 230px;
+	margin: 0 10px;
+	font-size: 3rem;
+	max-width: 230px;
 }
  #home .single-post .title_image .desc {
-	 display: flex;
-	 flex-direction: column;
-	 justify-content: space-around;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
  #home .single-post .title_image .desc * {
-	 margin: 1rem 0;
+	margin: 1rem 0;
 }
  #home .single-post .title_image .desc p {
-	 padding: 10px;
+	padding: 10px;
 }
  #home .single-post .title_image .desc img {
-	 max-width: 400px;
-	 float: right;
-	 position: relative;
-	 right: 10px;
-	 display: block;
-	 padding: 0.5rem;
+	max-width: 400px;
+	float: right;
+	position: relative;
+	right: 10px;
+	display: block;
+	padding: 0.5rem;
 }
  #home .single-post .icons {
-	 display: flex;
-	 justify-content: flex-start;
-	 align-items: center;
-	 color: #eee;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	color: #eee;
 }
  #home .single-post .icons i {
-	 margin-left: 10px;
-	 cursor: pointer;
+	margin-left: 10px;
+	cursor: pointer;
 }
  #home .single-post form {
-	 margin: 10px;
+	margin: 10px;
 }
  #home .single-post form input {
-	 width: 70%;
-	 margin: 10px auto;
-	 background-color: #677fa5;
-	 color: #eee;
-	 border: none;
-	 padding: 5px;
+	width: 70%;
+	margin: 10px auto;
+	background-color: #677fa5;
+	color: #eee;
+	border: none;
+	padding: 5px;
 }
  #home .single-post form input::placeholder {
-	 color: #eee;
-	 padding: 5px;
+	color: #eee;
+	padding: 5px;
 }
  #home .single-post form button {
-	 background-color: #677fa5;
-	 border: none;
-	 outline: none;
-	 padding: 5px 10px;
-	 cursor: pointer;
-	 color: #eee;
+	background-color: #677fa5;
+	border: none;
+	outline: none;
+	padding: 5px 10px;
+	cursor: pointer;
+	color: #eee;
 }
- 
-
 </style>
