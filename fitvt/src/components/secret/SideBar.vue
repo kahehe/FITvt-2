@@ -14,7 +14,7 @@
         />
       </div>
       <div class="logo">
-        <img src="@/assets/logo.svg" alt="logo" />
+        <img src="@/assets/logo.png" alt="logo" />
         <p>FITvt</p>
       </div>
     </header>
