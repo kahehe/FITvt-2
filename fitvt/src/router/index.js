@@ -18,6 +18,18 @@ const routes = [
     meta:{requiresAuth:false}
   },
   {
+    path: '/welcome',
+    name: 'welcome',
+    component: () => import('../views/welcome.vue'),
+    meta:{requiresAuth:true}
+  },
+  {
+    path: '/secret/profile',
+    name: 'profile',
+    component: () => import('../views/secret/profile.vue'),
+    meta:{requiresAuth:true}
+  },
+  {
     path: '/secret/home',
     name: 'home',
     component: () => import('../views/secret/home.vue'),
@@ -46,7 +58,25 @@ const routes = [
     name: 'chat-single',
     component: () => import('../views/secret/chat-single.vue'),
     meta:{requiresAuth:true}
-  }
+  },
+  {
+    path: '/secret/profile/user/:id',
+    name: 'other-profile',
+    component: () => import('../views/secret/other-profile.vue'),
+    meta:{requiresAuth:true}
+  },
+  {
+    path: '/secret/all-users',
+    name: 'all-users',
+    component: () => import('../views/secret/all-users.vue'),
+    meta:{requiresAuth:true}
+  },
+  {
+    path: '/secret/feedback',
+    name: 'feedback',
+    component: () => import('../views/secret/feedback.vue'),
+    meta:{requiresAuth:true}
+  },
 ]
 
 const router = new VueRouter({
