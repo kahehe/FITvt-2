@@ -5,18 +5,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    UID:null,
-    username:null,
+    UID: null,
+    username: null,
   },
   mutations: {
-    setUID(state,token){
+    setUID(state, token) {
       state.UID = token;
     },
-    removeUID(state){
-      state.UID=null;
+    removeUID(state) {
+      state.UID = null;
     },
-    setuname(state,token){
+    setuname(state, token) {
       state.username = token;
+    },
+    setChatUsername(state,token){
+      state.chattingUsername = token
     }
   },
   actions: {
