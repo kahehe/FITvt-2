@@ -15,7 +15,7 @@
 import SideBar from "@/components/secret/SideBar";
 import CalendarChart from "@/components/secret/CalendarChart";
 import sNavBar from "@/components/secret/NavBar";
-import Friendposts from "@/components/secret/Friend-posts";
+import Friend_posts from "@/components/secret/Friend-posts";
 export default {
 	components: {
 		SideBar,
