@@ -170,91 +170,92 @@ export default {
 
 <style scoped>
 section {
-	 width: 100%;
-	 padding: 0 7px;
-	 position: relative;
-	 height: 100%;
+  width: 100%;
+  padding: 0 7px;
+  position: relative;
+  height: 100%;
 }
- section header {
-	 display: flex;
-	 justify-content: space-evenly;
+section header {
+  display: flex;
+  justify-content: space-evenly;
 }
- section header .profile-image input {
-	 opacity: 0;
-	 position: relative;
-	 top: 40px;
-	 transform: scale(0.6, 3);
-	 cursor: pointer;
+section header .profile-image input {
+  opacity: 0;
+  position: relative;
+  top: 40px;
+  transform: scale(0.6, 3);
+  cursor: pointer;
 }
- section header .profile-image #avatar {
-	 vertical-align: middle;
-	 width: 55px;
-	 height: 55px;
-	 border-radius: 50%;
+section header .profile-image #avatar {
+  vertical-align: middle;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
 }
- section header .logo {
-	 display: flex;
-	 align-items: center;
-	 color: #eee;
-	 font-size: 2rem;
-	 user-select: none;
-	 transform: translate(-80px, 10px);
+section header .logo {
+  display: flex;
+  align-items: center;
+  color: #eee;
+  font-size: 2rem;
+  user-select: none;
+  transform: translate(-80px, 10px);
 }
- section .name, section .friends {
-	 display: flex;
-	 justify-content: space-between;
-	 color: #d5d5d5;
+section .name,
+section .friends {
+  display: flex;
+  justify-content: space-between;
+  color: #d5d5d5;
 }
- section .name i, section .friends i {
-	 cursor: pointer;
+section .name i,
+section .friends i {
+  cursor: pointer;
 }
- section .friends i {
-	 background-color: #0070cc;
-	 padding: 0.5rem;
-	 border-radius: 50%;
+section .friends i {
+  background-color: #0070cc;
+  padding: 0.5rem;
+  border-radius: 50%;
 }
- section .friends-list {
-	 display: flex;
-	 flex-direction: column;
-	 justify-content: center;
-	 align-items: center;
-	 color: #eee;
+section .friends-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #eee;
 }
- section .friends-list .friend {
-	 display: flex;
-	 justify-content: space-evenly;
-	 align-items: center;
-	 width: 100%;
-	 margin-bottom: 15px;
-	 cursor: pointer;
+section .friends-list .friend {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+  cursor: pointer;
 }
- section .friends-list .friend #avatar {
-	 vertical-align: middle;
-	 width: 45px;
-	 height: 45px;
-	 border-radius: 50%;
-	 cursor: pointer;
-	 margin-right: 10px;
+section .friends-list .friend #avatar {
+  vertical-align: middle;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 10px;
 }
- section .friends-list .friend p {
-	 font-size: 0.85rem;
+section .friends-list .friend p {
+  font-size: 0.85rem;
 }
- section .friends-list .friend p strong {
-	 cursor: pointer;
+section .friends-list .friend p strong {
+  cursor: pointer;
 }
- section .friends-list .friend i {
-	 cursor: pointer;
-	 margin-left: 10px;
+section .friends-list .friend i {
+  cursor: pointer;
+  margin-left: 10px;
 }
- section button {
-	 position: absolute;
-	 bottom: 0;
-	 left: 0;
-	 background-color: transparent;
-	 border: 1px solid #eee;
-	 padding: 5px 10px;
-	 cursor: pointer;
-	 color: #eee;
+section button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  border: 1px solid #eee;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #eee;
 }
- 
 </style>
