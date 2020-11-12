@@ -30,7 +30,6 @@ import SideBar from "@/components/secret/SideBar";
 import CalendarChart from "@/components/secret/CalendarChart";
 import sNavBar from "@/components/secret/NavBar";
 import Spinner from "@/components/Spinner";
-import firebase from "firebase/app";
 export default {
 	components: {
 		SideBar,
