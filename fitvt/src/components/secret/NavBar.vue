@@ -32,22 +32,22 @@ export default {
 
 <style scoped>
 nav {
-	display: flex;
-	justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 nav a {
-	text-decoration: none;
-	background-color: #212936;
-	padding: 10px 20px;
-	text-align: center;
-	color: #a7b5cb;
-	border-radius: 10px;
+  text-decoration: none;
+  background-color: #212936;
+  padding: 10px 20px;
+  text-align: center;
+  color: #a7b5cb;
+  border-radius: 10px;
 }
 nav .router-link-active {
-	background-color: #0062b3;
+  background-color: #0062b3;
 }
-nav .router-link-active i, nav .router-link-active p {
-	color: white;
+nav .router-link-active i,
+nav .router-link-active p {
+  color: white;
 }
- 
 </style>
