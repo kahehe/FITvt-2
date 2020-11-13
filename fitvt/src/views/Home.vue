@@ -96,7 +96,7 @@ export default {
 </script>
 <style scoped>
 #nav {
-  width: 100%;
+  width: auto;
   background-color: #212936;
   height: 65px;
   padding: 10px 20px;

@@ -1,8 +1,20 @@
 <template>
   <nav>
-    <router-link v-for="(link, index) in links" :key="index" :to="link.path">
-      <i :class="link.class"></i>
-      <p>{{ link.text }}</p>
+    <router-link to="/secret/home">
+      <img src = "@/assets/home.png" />
+      <p>{{"Home"}}</p>
+    </router-link>
+    <router-link to="/secret/profile">
+      <img src = "@/assets/user.png" />
+      <p>{{"Profile"}}</p>
+    </router-link>
+    <router-link to="/secret/feedback">
+      <img src = "@/assets/form.png" />
+      <p>{{"Feedback"}}</p>
+    </router-link>
+    <router-link to="/secret/chat">
+      <img src = "@/assets/chat.png" />
+      <p>{{"Chat"}}</p>
     </router-link>
   </nav>
 </template>
@@ -11,20 +23,6 @@
 export default {
   data() {
     return {
-      links: [
-        { text: "Home", class: "fas fa-home fa-3x", path: "/secret/home" },
-        {
-          text: "Profile",
-          class: "far fa-user-circle fa-3x",
-          path: "/secret/profile",
-        },
-        {
-          text: "Feedback",
-          class: "far fa-newspaper fa-3x",
-          path: "/secret/feedback",
-        },
-        { text: "Chat", class: "fas fa-comments fa-3x", path: "/secret/chat" },
-      ],
     };
   },
 };
@@ -40,11 +38,11 @@ nav a {
   background-color: #212936;
   padding: 10px 20px;
   text-align: center;
-  color: #a7b5cb;
+  color: white;
   border-radius: 10px;
 }
 nav .router-link-active {
-  background-color: #0062b3;
+  background-color: #212936;
 }
 nav .router-link-active i,
 nav .router-link-active p {

@@ -18,7 +18,7 @@
     </div>
     <div class="create-workout" v-if="!isInCreatePage">
       <router-link to="/secret/profile/create-workout">
-        <i class="fas fa-plus"></i>
+        <img src = "@/assets/smallplus.png" />
         create new workout
       </router-link>
     </div>

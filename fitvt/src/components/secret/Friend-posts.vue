@@ -22,24 +22,29 @@
         </div>
       </div>
       <div class="icons">
-        <i
-          class="fas fa-save fa-2x"
-          title="save this post"
+        <img 
+          title="save this post" 
+          src = "@/assets/save.png"
           @click="savePost(post, Math.random())"
-          :id="randomId"
-        ></i>
-        <i
-          class="fas fa-comment fa-2x"
-          title="see the comments"
-          @click="showComments(post.docId)"
-        ></i>
-        <i class="fas fa-heart fa-2x" @click="like(post.docId)" :id="post.docId"></i>
+          :id="randomId" 
+        />
+        <img 
+          title="see the comments" 
+          src = "@/assets/comment.png"
+          @click="showComments(post.docId)" 
+        />
+        <img 
+          title="see the comments" 
+          src = "@/assets/heart.png"
+          @click="like(post.docId)" 
+          :id="post.docId"
+        />
         <span style="font-size:1.4rem;margin-left:5px;" id="like_amount">{{likes[post.docId]}}</span>
       </div>
       <form>
         <input type="text" placeholder="your comment..." v-model="comment" />
         <button @click.prevent="submitComment(post.docId)">
-          <i class="fas fa-paper-plane"></i>
+          <img src = "@/assets/paper-plane.png" />
         </button>
       </form>
     </div>
