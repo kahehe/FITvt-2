@@ -29,7 +29,7 @@
 							class="btn"
 							@click="addToFriends(user.uid, user.username, user.url)"
 						>
-							<i class="fas fa-plus"></i>
+							<img src = "@/assets/plus.png" />
 						</button>
 					</div>
 				</div>
