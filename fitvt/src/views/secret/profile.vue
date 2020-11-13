@@ -8,7 +8,7 @@
 				<h3><span>My Workouts</span></h3>
 				<div class="create-workout" style="margin-top: 1rem">
 					<router-link to="/secret/profile/create-workout">
-						<i class="fas fa-plus"></i>
+						<img src = "@/assets/smallplus.png" />
 						create new workout
 					</router-link>
 				</div>
@@ -39,7 +39,7 @@
 				<br />
 				<div class="create-workout">
 					<router-link to="/secret/create-post">
-						<i class="fas fa-plus"></i>
+						<img src = "@/assets/smallplus.png" />
 						make your post
 					</router-link>
 				</div>
@@ -60,16 +60,9 @@
 						</div>
 					</div>
 					<div class="icons">
-						<i
-							class="fas fa-comment fa-2x"
-							title="see the comments"
-							@click="showComments(post.documentId)"
-						></i>
-						<i
-							class="fas fa-heart fa-2x"
-							@click="like(post.documentId)"
-							:id="post.documentId"
-						></i>
+						<img title="see the comments" src = "@/assets/comment.png" @click="showComments(post.documentId)" />
+						<img src = "@/assets/heart.png" @click="like(post.documentId)" :id="post.documentId" />
+						
 						<span
 							style="font-size: 1.4rem; margin-left: 5px"
 							id="like_amount"

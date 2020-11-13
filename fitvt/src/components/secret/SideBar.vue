@@ -29,7 +29,7 @@
     <div class="friends">
       <p>Friends</p>
       <router-link to="/secret/all-users" style="color: unset">
-        <i class="fas fa-plus"></i>
+        <img src = "@/assets/plus.png" />
       </router-link>
     </div>
     <br />
@@ -55,11 +55,11 @@
 
           <br />New York
         </p>
-        <i
-          class="fas fa-backspace"
-          title="unfriend this user"
-          @click="removeFriend(friend.username)"
-        ></i>
+        <img 
+          title="unfriend this user" 
+          @click="removeFriend(friend.username)" 
+          src = "@/assets/delete.png"  
+          />
       </div>
       <br />
     </div>
@@ -210,10 +210,12 @@ section .name i,
 section .friends i {
   cursor: pointer;
 }
-section .friends i {
+section .friends a {
   background-color: #0070cc;
   padding: 0.5rem;
   border-radius: 50%;
+  height: 25px;
+  width: 25px;
 }
 section .friends-list {
   display: flex;

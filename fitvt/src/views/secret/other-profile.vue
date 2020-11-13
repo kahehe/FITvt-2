@@ -40,27 +40,10 @@
 						</div>
 					</div>
 					<div class="icons">
-						<i
-							class="fas fa-save fa-2x"
-							title="save this post"
-							@click="savePost(post)"
-							:id="
-								post.title.split(' ')[0] +
-									'_' +
-									(post.title.split(' ')[1] && post.title.split(' ')[1][0])
-							"
-						>
-						</i>
-						<i
-							class="fas fa-comment fa-2x"
-							title="see the comments"
-							@click="showComments(post.docId)"
-						></i>
-						<i
-							class="fas fa-heart fa-2x"
-							@click="like(post.docId)"
-							:id="post.docId"
-						></i>
+						<img title="save this post" src = "@/assets/save.png" @click="savePost(post)" :id="post.title.split(' ')[0] + '_' + (post.title.split(' ')[1] && post.title.split(' ')[1][0])" />
+						<img title="see the comments" src = "@/assets/comment.png" @click="showComments(post.docId)" />
+						<img src = "@/assets/heart.png" @click="like(post.docId)" :id="post.docId" />
+						
 						<span style="font-size:1.4rem;margin-left:5px;" id="like_amount">{{
 							likes[post.docId]
 						}}</span>
@@ -72,7 +55,7 @@
 							v-model="comment"
 						/>
 						<button @click.prevent="submitComment(post.docId)">
-							<i class="fas fa-paper-plane"></i>
+							<img src = "@/assets/paper-plane.png" />
 						</button>
 					</form>
 				</div>
