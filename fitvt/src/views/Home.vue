@@ -7,23 +7,26 @@
           <h1>The #1 app for Fitness Enthusiasts!</h1>
         </section>
         <section id="form-image">
-          <img src="@/assets/bolt.png" alt="usain-bolt" width="700" />
+          <img src="@/assets/bolt.png" alt="usain-bolt" width="700" margin-bottom="0px"/>
           <div class="form">
             <h1>Join FITvt! <br />It's free.</h1>
             <form>
               <p>{{ error }}</p>
+              <p>Email address</p>
               <input
                 type="email"
                 id="email"
                 placeholder="aaronfit@gmail.com"
                 v-model="email"
               />
+              <p>Username</p>
               <input
                 type="text"
                 id="username"
                 placeholder="aaron"
                 v-model="username"
               />
+              <p>Password</p>
               <input
                 type="password"
                 id="password"
@@ -113,50 +116,6 @@ export default {
 #nav .left p {
   font-size: 30px;
 }
-.neon-btn {
-  transition: all 0.15s ease-in;
-  color: #008cff;
-}
-.neon-btn:hover {
-  background-color: #008cff;
-  box-shadow: 0 0 20px #008cff, 0 0 30px #008cff, 0 0 40px #008cff,
-    0 0 50px #008cff;
-  color: #eee;
-}
-.neon-btn span {
-  position: absolute;
-  border-radius: 50%;
-  background-color: #008cff;
-  opacity: 1;
-}
-.neon-btn span:nth-child(1) {
-  left: -100%;
-  top: 0;
-  width: 100%;
-  height: 2px;
-  animation: first-child 1s ease-in infinite;
-}
-.neon-btn span:nth-child(2) {
-  left: 0;
-  bottom: -100%;
-  width: 3px;
-  height: 100%;
-  animation: second-child 0.8s ease-in infinite;
-}
-.neon-btn span:nth-child(3) {
-  right: -100%;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  animation: third-child 1s ease-in infinite;
-}
-.neon-btn span:nth-child(4) {
-  top: -100%;
-  right: 0;
-  height: 100%;
-  width: 3px;
-  animation: forth-child 0.8s ease-in infinite;
-}
 .btn {
   background-color: transparent;
   padding: 10px 20px;
@@ -168,46 +127,7 @@ export default {
   border: none;
   font-size: 1.1rem;
 }
-@keyframes first-child {
-  from {
-    left: -100%;
-    opacity: 1;
-  }
-  to {
-    left: 100%;
-    opacity: 0;
-  }
-}
-@keyframes second-child {
-  from {
-    top: 100%;
-    opacity: 1;
-  }
-  to {
-    top: -100%;
-    opacity: 0;
-  }
-}
-@keyframes third-child {
-  from {
-    right: -100%;
-    opacity: 1;
-  }
-  to {
-    right: 100%;
-    opacity: 0;
-  }
-}
-@keyframes forth-child {
-  from {
-    top: -100%;
-    opacity: 1;
-  }
-  to {
-    top: 100%;
-    opacity: 0;
-  }
-}
+
 main {
   width: 100%;
   background-color: #2b3648;
@@ -219,6 +139,7 @@ main .container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 main .container #text h1 {
   color: #eee;
@@ -232,6 +153,7 @@ main .container #form-image {
   display: flex;
   width: 100%;
   justify-content: space-around;
+  margin-bottom: 100px
 }
 main .container #form-image img {
   position: relative;
@@ -249,6 +171,7 @@ main .container #form-image .form {
 main .container #form-image .form h1 {
   color: #eee;
   font-size: 2rem;
+  margin-bottom: 0px;
 }
 main .container #form-image .form form {
   width: 100%;
@@ -263,6 +186,11 @@ main .container #form-image .form form input {
 main .container #form-image .form form input::placeholder {
   color: #a2a2a2;
   padding-left: 5px;
+}
+main .container #form-image .form form p {
+  font-size: 0.7rem;
+  color: white;
+  margin-bottom:0px;
 }
 main .container #form-image .form button {
   background-color: #4dafff;

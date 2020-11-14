@@ -14,39 +14,40 @@
       </div>
 
       <div class="title_image">
-        <h1>{{ post.title }}</h1>
+        <h1 style="margin-left:100px">{{ post.title }}</h1>
         <div class="desc">
           <h4>Workout Title: {{ post.wtitle }}</h4>
-          <p>{{ post.wdescription }}</p>
+          <p>Workout Details: {{ post.wdescription }}</p>
           <img :src="post.url" alt="exercise_image" />
         </div>
       </div>
+
       <div class="icons">
-        <img style="cursor:pointer; padding-left:6px"
+        <img style="cursor:pointer; padding-left:8px"
           title="Save this post" 
           src = "@/assets/save.png"
           @click="savePost(post, Math.random())"
           :id="randomId" 
         />
-        <img style="cursor:pointer; padding-left:6px"
+        <img style="cursor:pointer; padding-left:8px"
           title="See the comments" 
           src = "@/assets/comment.png"
           @click="showComments(post.docId)" 
         />
-        <img style="cursor:pointer; padding-left:6px"
+        <img style="cursor:pointer; padding-left:8px"
           title="Like this post" 
           src = "@/assets/heart.png"
           @click="like(post.docId)" 
           :id="post.docId"
         />
         <span style="font-size:1.4rem;margin-left:5px;" id="like_amount">{{likes[post.docId]}}</span>
-      </div>
       <form>
-        <input type="text" placeholder="your comment..." v-model="comment" />
-        <button @click.prevent="submitComment(post.docId)">
-          <img style="height:13px" src = "@/assets/paper-plane.png" />
+        <input type="text" placeholder="your comment..." v-model="comment" style="width: 600px"/>
+        <button @click.prevent="submitComment(post.docId)" style="margin-left:6px">
+          <img style="height:10px" src = "@/assets/paper-plane.png" />
         </button>
       </form>
+      </div>
     </div>
   </section>
 </template>
@@ -274,9 +275,10 @@ export default {
 	justify-content: flex-start;
 	align-items: center;
 	color: #eee;
+  margin-left: 10px;
 }
  #home .single-post .icons i {
-	margin-left: 10px;
+	margin-left: 15px;
 	cursor: pointer;
 }
  #home .single-post form {

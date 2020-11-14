@@ -21,7 +21,7 @@
     <br />
     <br />
     <div class="name">
-      <p>{{ username }}</p>
+      <h3>{{ username }}</h3>
     </div>
     <br />
     <hr />
