@@ -44,8 +44,8 @@
 					</router-link>
 				</div>
 				<div class="single-post" v-for="(post, index) in myPosts" :key="index">
-					<button id="delete-btn" @click="deletePost(post.documentId)">
-						delete
+					<button style="cursor:pointer" id="delete-btn" @click="deletePost(post.documentId)">
+						Delete
 					</button>
 					<div class="profile">
 						<p>{{ post.username }}</p>
@@ -60,8 +60,8 @@
 						</div>
 					</div>
 					<div class="icons">
-						<img title="see the comments" src = "@/assets/comment.png" @click="showComments(post.documentId)" />
-						<img src = "@/assets/heart.png" @click="like(post.documentId)" :id="post.documentId" />
+						<img style="cursor:pointer; padding-left:5px" title="see the comments" src = "@/assets/comment.png" @click="showComments(post.documentId)" />
+						<img style="cursor:pointer; padding-left:5px" src = "@/assets/heart.png" @click="like(post.documentId)" :id="post.documentId" />
 						
 						<span
 							style="font-size: 1.4rem; margin-left: 5px"

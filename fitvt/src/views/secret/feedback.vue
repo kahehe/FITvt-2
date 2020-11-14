@@ -22,7 +22,7 @@
 					cols="70"
 					rows="10"
 					v-model="feedbackDescription"
-					placeholder="details of your feedback"
+					placeholder="I am facing problems with ..."
 				>
 Details of feedback</textarea
 				>
