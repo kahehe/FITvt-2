@@ -5,44 +5,41 @@
 			<sNavBar />
 			<section id="saved-posts">
 				<h1 style="margin: 2rem auto; color: white">
-					<span>workouts of {{ username }}</span>
+					<span>{{ username }}'s Workouts</span>
 				</h1>
 				<div>
 					<ul>
-						<ul>
-							<li v-for="(workout, index) in workouts" :key="index">
-								<p @click="openSavedW(workout)">
-									{{ workout.title }}
-								</p>
-							</li>
-						</ul>
+						<li v-for="(workout, index) in workouts" :key="index">
+							<p @click="openSavedW(workout)">
+								{{ workout.title }}
+							</p>
+						</li>
 					</ul>
 				</div>
 			</section>
 
 			<section id="my-posts" style="color: #fff">
 				<h1 style="margin: 2rem auto; color: white">
-					<span>Posts of {{ username }}</span>
+					<span>{{ username }}'s Posts</span>
 				</h1>
 				<br />
 				<div class="single-post" v-for="(post, index) in posts" :key="index">
 					<div class="profile">
-						<img :src="profileURL" alt="avatar" id="avatar" />
-						<p>{{ post.username }}</p>
+						<img :src="post.profile_img ||'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'" alt="avatar" id="avatar" />
+						<p>{{ username }}</p>
 					</div>
 
 					<div class="title_image">
 						<h1>{{ post.title }}</h1>
 						<div class="desc">
-							<h4>Exercise</h4>
-							<p>{{ post.wdescription }}</p>
+							<h4>Workout Title: {{post.wtitle}}</h4>
 							<img :src="post.url" alt="exercise_image" />
 						</div>
 					</div>
 					<div class="icons">
-						<img title="save this post" src = "@/assets/save.png" @click="savePost(post)" :id="post.title.split(' ')[0] + '_' + (post.title.split(' ')[1] && post.title.split(' ')[1][0])" />
-						<img title="see the comments" src = "@/assets/comment.png" @click="showComments(post.docId)" />
-						<img src = "@/assets/heart.png" @click="like(post.docId)" :id="post.docId" />
+						<img style="cursor:pointer; padding-left:5px; padding-bottom:8px" title="Save this workout" src = "@/assets/save.png" @click="savePost(post)" :id="post.title.split(' ')[0] + '_' + (post.title.split(' ')[1] && post.title.split(' ')[1][0])" />
+						<img style="cursor:pointer; padding-left:5px; padding-bottom:8px" title="See the comments" src = "@/assets/comment.png" @click="showComments(post.docId)" />
+						<img style="cursor:pointer; padding-left:5px; padding-bottom:8px" title="Like this post" src = "@/assets/heart.png" @click="like(post.docId)" :id="post.docId" />
 						
 						<span style="font-size:1.4rem;margin-left:5px;" id="like_amount">{{
 							likes[post.docId]
@@ -51,13 +48,14 @@
 					<form>
 						<input
 							type="text"
-							placeholder="your comment..."
+							placeholder="Your comment..."
 							v-model="comment"
 						/>
 						<button @click.prevent="submitComment(post.docId)">
-							<img src = "@/assets/paper-plane.png" />
+							<img style="height:13px" src = "@/assets/paper-plane.png" />
 						</button>
 					</form>
+				
 				</div>
 			</section>
 		</main>
@@ -117,12 +115,12 @@ export default {
 				});
 
 			//getting the url of profile image
-			let friends = JSON.parse(localStorage.getItem("friends"));
-			let specFriend = friends.filter((friend) => {
-				return friend.username == this.username;
-			});
-			this.profileURL = specFriend[0].url;
-			console.log(this.posts);
+			// let friends = JSON.parse(localStorage.getItem("friends"));
+			// let specFriend = friends.filter((friend) => {
+			// 	return friend.username == this.username;
+			// });
+			// this.profileURL = specFriend[0].url;
+			// console.log(this.posts);
 		},
 		async submitComment(docId) {
 			//adding the comment inside comment collection the same documentId as the post itself
@@ -184,7 +182,7 @@ export default {
 				swalContent.append(div);
 			});
 			swal({
-				title: "comments for this post",
+				title: "Comments",
 				content: swalContent,
 				allowOutsideClick: "true",
 			});
@@ -312,7 +310,7 @@ main section h3 span {
 main section ul {
 	padding: 10px;
 }
-main section ul li p {
+/* main section ul li p {
 	text-decoration: none;
 	position: relative;
 	left: 0;
@@ -320,7 +318,14 @@ main section ul li p {
 	float: left;
 	cursor: pointer;
 	text-decoration: underline;
+} */
+
+main section ul li p {
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline;
 }
+
 
 .main {
 	display: flex;
@@ -345,4 +350,85 @@ main {
 	max-width: 500px;
 	background-color: #2b3648;
 }
+
+.single-post {
+	background-color: #42536e;
+	margin-bottom: 100px;
+	border-radius: 20px;
+	position: relative;
+}
+ .single-post .profile {
+	display: flex;
+	align-items: center;
+}
+ .single-post .profile #avatar {
+	vertical-align: middle;
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	margin: 10px 5px 0 10px;
+}
+ .single-post .title_image {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+ .single-post .title_image h1 {
+	margin: 0 10px;
+	font-size: 3rem;
+	max-width: 230px;
+}
+ .single-post .title_image .desc {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+ .single-post .title_image .desc * {
+	margin: 1rem 0;
+}
+ .single-post .title_image .desc p {
+	padding: 10px;
+}
+ .single-post .title_image .desc img {
+	max-width: 400px;
+	float: right;
+	position: relative;
+	right: 10px;
+	display: block;
+	padding: 0.5rem;
+}
+ .single-post .icons {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	color: #eee;
+}
+ .single-post .icons i {
+	margin-left: 10px;
+	cursor: pointer;
+}
+ .single-post form {
+	margin: 10px;
+}
+ .single-post form input {
+	width: 70%;
+	margin: 10px auto;
+	background-color: #677fa5;
+	color: #eee;
+	border: none;
+	padding: 5px;
+}
+ .single-post form input::placeholder {
+	color: #eee;
+	padding: 5px;
+}
+ .single-post form button {
+	background-color: #677fa5;
+	border: none;
+	outline: none;
+	padding: 5px 10px;
+	cursor: pointer;
+	color: #eee;
+}
+ 
 </style>
