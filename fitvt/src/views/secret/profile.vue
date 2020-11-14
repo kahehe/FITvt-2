@@ -5,8 +5,8 @@
 		<main>
 			<sNavBar />
 			<section id="my-workouts">
-				<h3><span>My Workouts</span></h3>
-				<div class="create-workout" style="margin-top: 1rem">
+				<h1><span>My Workouts</span></h1>
+				<div class="create-workout">
 					<router-link to="/secret/profile/create-workout">
 						<img src = "@/assets/smallplus.png" />
 						create new workout
@@ -20,12 +20,11 @@
 					>
 						<p>{{ post.title }}</p>
 					</li>
-					<br />
 				</ul>
 			</section>
 
 			<section id="saved-workouts">
-				<h3><span>Saved Workouts</span></h3>
+				<h1><span>Saved Workouts</span></h1>
 				<ul>
 					<li v-for="(workout, index) in savedWorkouts" :key="index">
 						<p @click="openSavedW(workout)">
@@ -35,7 +34,7 @@
 				</ul>
 			</section>
 			<section id="my-posts">
-				<h3><span>My Posts</span></h3>
+				<h1><span>My Posts</span></h1>
 				<br />
 				<div class="create-workout">
 					<router-link to="/secret/create-post">
@@ -54,7 +53,7 @@
 					<div class="title_image">
 						<h1>{{ post.title }}</h1>
 						<div class="desc">
-							<h4>Exercise</h4>
+							<h4>Workout Title: {{post.wtitle}}</h4>
 							<p>{{ post.wdescription }}</p>
 							<img :src="post.url" alt="exercise_image" />
 						</div>
