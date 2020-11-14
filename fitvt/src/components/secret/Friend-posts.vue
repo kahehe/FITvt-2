@@ -16,25 +16,25 @@
       <div class="title_image">
         <h1>{{ post.title }}</h1>
         <div class="desc">
-          <h4>{{ post.wtitle }}</h4>
+          <h4>Workout Title: {{ post.wtitle }}</h4>
           <p>{{ post.wdescription }}</p>
           <img :src="post.url" alt="exercise_image" />
         </div>
       </div>
       <div class="icons">
-        <img 
-          title="save this post" 
+        <img style="cursor:pointer; padding-left:6px"
+          title="Save this post" 
           src = "@/assets/save.png"
           @click="savePost(post, Math.random())"
           :id="randomId" 
         />
-        <img 
-          title="see the comments" 
+        <img style="cursor:pointer; padding-left:6px"
+          title="See the comments" 
           src = "@/assets/comment.png"
           @click="showComments(post.docId)" 
         />
-        <img 
-          title="see the comments" 
+        <img style="cursor:pointer; padding-left:6px"
+          title="Like this post" 
           src = "@/assets/heart.png"
           @click="like(post.docId)" 
           :id="post.docId"
@@ -44,7 +44,7 @@
       <form>
         <input type="text" placeholder="your comment..." v-model="comment" />
         <button @click.prevent="submitComment(post.docId)">
-          <img src = "@/assets/paper-plane.png" />
+          <img style="height:13px" src = "@/assets/paper-plane.png" />
         </button>
       </form>
     </div>

@@ -60,8 +60,8 @@
 						</div>
 					</div>
 					<div class="icons">
-						<img style="cursor:pointer; padding-left:5px" title="see the comments" src = "@/assets/comment.png" @click="showComments(post.documentId)" />
-						<img style="cursor:pointer; padding-left:5px" src = "@/assets/heart.png" @click="like(post.documentId)" :id="post.documentId" />
+						<img style="cursor:pointer; padding-left:5px; padding-bottom:8px" title="See the comments" src = "@/assets/comment.png" @click="showComments(post.documentId)" />
+						<img style="cursor:pointer; padding-left:5px; padding-bottom:8px" title="Like this post" src = "@/assets/heart.png" @click="like(post.documentId)" :id="post.documentId" />
 						
 						<span
 							style="font-size: 1.4rem; margin-left: 5px"
@@ -183,7 +183,7 @@ export default {
 				swalContent.append(div);
 			});
 			swal({
-				title: "comments for this post",
+				title: "Comments",
 				content: swalContent,
 				allowOutsideClick: "true",
 			});
