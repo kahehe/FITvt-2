@@ -23,7 +23,7 @@
       </div>
       <div class="icons">
         <img style="cursor:pointer; padding-left:6px"
-          title="Save this post" 
+          title="Save this workout" 
           src = "@/assets/save.png"
           @click="savePost(post, Math.random())"
           :id="randomId" 
@@ -42,7 +42,7 @@
         <span style="font-size:1.4rem;margin-left:5px;" id="like_amount">{{likes[post.docId]}}</span>
       </div>
       <form>
-        <input type="text" placeholder="your comment..." v-model="comment" />
+        <input type="text" placeholder="Your comment..." v-model="comment" />
         <button @click.prevent="submitComment(post.docId)">
           <img style="height:13px" src = "@/assets/paper-plane.png" />
         </button>
@@ -127,7 +127,7 @@ export default {
         swalContent.append(div);
       });
       swal({
-        title: "comments for this post",
+        title: "Comments",
         content: swalContent,
         allowOutsideClick: "true",
       });
@@ -147,7 +147,9 @@ export default {
       });
       //because space in id is not acceptable we have to replace the space with _
       document.querySelector(`#${this.randomId}`).style.color = "#008cff";
-      swal("post saved successfully", "", "success");
+      swal({
+        text: "post saved successfully", 
+        icon: "success"});
     },
     async like(docId){
       try {
