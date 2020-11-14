@@ -30,32 +30,43 @@
 					</div>
 
 					<div class="title_image">
-						<h1>{{ post.title }}</h1>
+						<h1 style="margin-left:100px">{{ post.title }}</h1>
 						<div class="desc">
-							<h4>Workout Title: {{post.wtitle}}</h4>
-							<img :src="post.url" alt="exercise_image" />
-						</div>
+						<h4>Workout Title: {{ post.wtitle }}</h4>
+						<p>Workout Details: {{ post.wdescription }}</p>
+						<img :src="post.url" alt="exercise_image" />
 					</div>
+					</div>
+
 					<div class="icons">
-						<img style="cursor:pointer; padding-left:5px; padding-bottom:8px" title="Save this workout" src = "@/assets/save.png" @click="savePost(post)" :id="post.title.split(' ')[0] + '_' + (post.title.split(' ')[1] && post.title.split(' ')[1][0])" />
-						<img style="cursor:pointer; padding-left:5px; padding-bottom:8px" title="See the comments" src = "@/assets/comment.png" @click="showComments(post.docId)" />
-						<img style="cursor:pointer; padding-left:5px; padding-bottom:8px" title="Like this post" src = "@/assets/heart.png" @click="like(post.docId)" :id="post.docId" />
+						<img style="cursor:pointer; padding-left:8px"
+						title="Save this workout" 
+						src = "@/assets/save.png"
+						@click="savePost(post, Math.random())"
+						:id="post.title.split(' ')[0] + '_' + (post.title.split(' ')[1] && post.title.split(' ')[1][0])" 
+						/>
+						<img style="cursor:pointer; padding-left:8px"
+						title="See the comments" 
+						src = "@/assets/comment.png"
+						@click="showComments(post.docId)" 
+						/>
+						<img style="cursor:pointer; padding-left:8px"
+						title="Like this post" 
+						src = "@/assets/heart.png"
+						@click="like(post.docId)" 
+						:id="post.docId"
+						/>
 						
 						<span style="font-size:1.4rem;margin-left:5px;" id="like_amount">{{
 							likes[post.docId]
 						}}</span>
-					</div>
-					<form>
-						<input
-							type="text"
-							placeholder="Your comment..."
-							v-model="comment"
-						/>
-						<button @click.prevent="submitComment(post.docId)">
-							<img style="height:13px" src = "@/assets/paper-plane.png" />
-						</button>
-					</form>
-				
+						<form>
+							<input type="text" placeholder="Your comment..." v-model="comment" style="width: 550px"/>
+							<button @click.prevent="submitComment(post.docId)" style="margin-left:6px">
+							<img style="height:10px" src = "@/assets/paper-plane.png" />
+							</button>
+						</form>
+				</div>
 				</div>
 			</section>
 		</main>
@@ -207,7 +218,7 @@ export default {
 				post.docId[3] +
 				post.docId[4];
 			document.querySelector(`#${id}`).style.color = "#008cff";
-			swal("post saved successfully", "", "success");
+			swal("Post saved successfully", "", "success");
 		},
 
 		openSavedW(workout) {
@@ -397,14 +408,16 @@ main {
 	display: block;
 	padding: 0.5rem;
 }
+
  .single-post .icons {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	color: #eee;
+	margin-left: 10px;
 }
  .single-post .icons i {
-	margin-left: 10px;
+	margin-left: 15px;
 	cursor: pointer;
 }
  .single-post form {

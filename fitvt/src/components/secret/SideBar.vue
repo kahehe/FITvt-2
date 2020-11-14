@@ -28,9 +28,9 @@
     <br />
     <div class="friends">
       <p>Friends</p>
-      <router-link to="/secret/all-users" style="color: unset">
-        <img src = "@/assets/plus.png" />
-      </router-link>
+      <router-link to="/secret/all-users">
+					<img src = "@/assets/addfriends.png" style="width:25px "/>
+				</router-link>
     </div>
     <br />
     <div class="friends-list">
@@ -212,11 +212,13 @@ section .friends i {
 }
 section .friends a {
   background-color: #0070cc;
-  padding: 0.5rem;
-  border-radius: 50%;
+  padding: .5rem;
+  border-radius: 70%;
   height: 25px;
   width: 25px;
 }
+
+
 section .friends-list {
   display: flex;
   flex-direction: column;
