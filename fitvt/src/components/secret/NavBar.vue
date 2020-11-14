@@ -33,9 +33,15 @@ nav {
   display: flex;
   justify-content: space-around;
 }
+nav p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 nav a {
   text-decoration: none;
   background-color: #212936;
+  width: 70px;
   padding: 10px 20px;
   text-align: center;
   color: white;

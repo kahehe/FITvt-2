@@ -6,7 +6,8 @@
 			<sNavBar />
 			<p class="error" v-if="error">{{ error }}</p>
 			<section id="workout-select">
-				<h3>select your workout:</h3>
+				<h3>Select your workout:</h3>
+				<br /><br />
 				<select v-model="select">
 					<option
 						v-for="(workout, index) in workouts"
@@ -26,7 +27,7 @@
 			</section>
 			<section id="workout-image">
 				<h3>Image:</h3>
-				<br /><br />
+				<br />
 				<input type="file" @change="inputChange" />
 			</section>
 
