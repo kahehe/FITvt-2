@@ -63,21 +63,21 @@
 						<img style="cursor:pointer; padding-left:8px"
 						title="See the comments" 
 						src = "@/assets/comment.png"
-						@click="showComments(post.docId)" 
+						@click="showComments(post.documentId)" 
 						/>
 						<img style="cursor:pointer; padding-left:8px"
 						title="Like this post" 
 						src = "@/assets/heart.png"
-						@click="like(post.docId)" 
-						:id="post.docId"
+						@click="like(post.documentId)" 
+						:id="post.documentId"
 						/>
 						
 						<span style="font-size:1.4rem;margin-left:5px;" id="like_amount">{{
-							likes[post.docId]
+							likes[post.documentId]
 						}}</span>
 						<form>
 							<input type="text" placeholder="Your comment..." v-model="comment" style="width: 550px"/>
-							<button @click.prevent="submitComment(post.docId)" style="margin-left:6px">
+							<button @click.prevent="submitComment(post.documentId)" style="margin-left:6px">
 							<img style="height:10px" src = "@/assets/paper-plane.png" />
 							</button>
 						</form>
@@ -206,6 +206,42 @@ export default {
 				allowOutsideClick: "true",
 			});
 		},
+
+		async submitComment(docId) {
+      //adding the comment inside comment collection with the same documentId as the post itself
+      //and adding the comments inside an array. the format is array
+			try {
+				//check if there is a document (not the first time that we want to add smth)
+				await window.db
+				.collection("comment")
+				.doc(docId)
+				.update({
+					text: firebase.firestore.FieldValue.arrayUnion({
+					comment: this.comment,
+					name: localStorage.getItem("username"),
+					}),
+				});
+			} catch (err) {
+				//if it is the first time that we want to add smth to the collection
+				if (err.message.slice(0, 21) == "No document to update") {
+				await window.db
+					.collection("comment")
+					.doc(docId)
+					.set({
+					text: [
+						{
+						comment: this.comment,
+						name: localStorage.getItem("username"),
+						},
+					],
+					});
+				}
+			}
+			//clearing the input
+			this.comment = "";
+			},
+
+
 
 		async like(docId) {
 			console.log(docId);

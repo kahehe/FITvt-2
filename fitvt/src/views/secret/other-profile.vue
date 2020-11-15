@@ -35,7 +35,7 @@
 						<h4>Workout Title: {{ post.wtitle }}</h4>
 						<p>Workout Details: {{ post.wdescription }}</p>
 						<img :src="post.url" alt="exercise_image" />
-					</div>
+						</div>
 					</div>
 
 					<div class="icons">
@@ -201,7 +201,6 @@ export default {
 		//saving posts
 		async savePost(post) {
 			console.log(post);
-			console.log("wqohooooo");
 			//post=>{docId,profileImage(owner),uid(owner),url,description,title}
 			await window.db.collection("saved-post").add({
 				uid: localStorage.getItem("UID"),
