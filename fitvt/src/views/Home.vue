@@ -11,7 +11,7 @@
           <div class="form">
             <h1>Join FITvt! <br />It's free.</h1>
             <form>
-              <p>{{ error }}</p>
+              <p style="color:red">{{ error }}</p>
               <h3>Email address</h3>
               <input
                 type="email"
