@@ -13,15 +13,15 @@
 					<img
 						:src="
 							user.url ||
-								'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'
+								'https://www.showflipper.com/blog/images/default.jpg'
 						"
 						alt="avatar"
 						id="avatar"
 					/>
 					<div class="text">
-						<h3>{{ user.username }}</h3>
-						<p v-if="!isLast_msg(user.uid)">click to start your conversation</p>
-						<p v-if="isLast_msg(user.uid)">{{ last_msg }}</p>
+						<h3 style="text-align:left">{{ user.username }}</h3>
+						<p style="text-align:left" v-if="!isLast_msg(user.uid)">Click to start your conversation</p>
+						<p style="text-align:left" v-if="isLast_msg(user.uid)">{{ last_msg }}</p>
 					</div>
 				</div>
 			</section>

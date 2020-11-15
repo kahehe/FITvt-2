@@ -15,7 +15,7 @@
 							<img
 								:src="
 									other_profile_img ||
-										'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'
+										'https://www.showflipper.com/blog/images/default.jpg'
 								"
 								id="avatar"
 							/>
@@ -26,7 +26,7 @@
 							<img
 								:src="
 									self_profile_img ||
-										'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'
+										'https://www.showflipper.com/blog/images/default.jpg'
 								"
 								id="avatar"
 							/>

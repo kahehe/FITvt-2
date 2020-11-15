@@ -5,7 +5,7 @@
         <img
           :src="
             post.profile_img ||
-            'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'
+            'https://www.showflipper.com/blog/images/default.jpg'
           "
           alt=""
           id="avatar"
@@ -18,7 +18,7 @@
         <div class="desc">
           <h4>Workout Title: {{ post.wtitle }}</h4>
           <p>Workout Details: {{ post.wdescription }}</p>
-          <img :src="post.url" alt="exercise_image" />
+          <img :src="post.url" @error="$event.target.src='https://www.danone.com/content/dam/danone-corp/danone-com/stories/stay-strong-stay-safe-danone.jpg'" />
         </div>
       </div>
 
@@ -149,7 +149,7 @@ export default {
       //because space in id is not acceptable we have to replace the space with _
       document.querySelector(`#${this.randomId}`).style.color = "#008cff";
       swal({
-        text: "post saved successfully", 
+        text: "You saved workout!", 
         icon: "success"});
     },
     async like(docId){
@@ -179,6 +179,9 @@ export default {
         }
       }
       this.$forceUpdate();
+      swal({
+        text: "You liked post!", 
+        icon: "success"});
     }
   },
   async mounted() {
@@ -230,7 +233,7 @@ export default {
 }
  #home .single-post {
 	background-color: #42536e;
-	margin-bottom: 100px;
+	margin-bottom: 30px;
 	border-radius: 20px;
 	position: relative;
 }

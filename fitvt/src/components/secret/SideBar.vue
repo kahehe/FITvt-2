@@ -2,34 +2,32 @@
   <section>
     <Spinner v-if="loading" />
     <header>
-      <div class="profile-image">
-        <input type="file" @change="inputChange" />
-        <img
-          :src="
-            profileImageUrl ||
-            'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'
-          "
-          alt="avatar"
-          id="avatar"
-        />
-      </div>
       <div class="logo">
         <img src="@/assets/logo.png" alt="logo" />
         <p>FITvt</p>
       </div>
     </header>
-    <br />
-    <br />
+
     <div class="name">
-      <h3>{{ username }}</h3>
+      <div class="profile-image">
+        <input type="file" @change="inputChange" />
+        <img
+          :src="
+            profileImageUrl ||
+            'https://www.showflipper.com/blog/images/default.jpg'
+          "
+          alt="avatar"
+          id="avatar"
+        />
+      </div>
+      <h3 class="fakelogo">{{ username }}</h3>
     </div>
-    <br />
     <hr />
     <br />
     <div class="friends">
       <p>Friends</p>
-      <router-link to="/secret/all-users">
-					<img src = "@/assets/addfriends.png" style="width:25px "/>
+      <router-link  to="/secret/all-users">
+					<img  src = "@/assets/addfriends.png" style="width:25px; height:25px"/>
 				</router-link>
     </div>
     <br />
@@ -43,7 +41,7 @@
         <img
           :src="
             friend.url ||
-            'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'
+            'https://www.showflipper.com/blog/images/default.jpg'
           "
           alt="profile-image"
           id="avatar"
@@ -52,8 +50,6 @@
           <span style="font-size: 1rem">
             <strong>{{ friend.username }}</strong>
           </span>
-
-          <br />New York
         </p>
         <img 
           title="unfriend this user" 
@@ -179,28 +175,40 @@ section header {
   display: flex;
   justify-content: space-evenly;
 }
-section header .profile-image input {
+section header .logo {
+  display: flex;
+  align-items: center;
+  color: #eee;
+  font-size: 3rem;
+  user-select: none;
+  /* transform: translate(-80px, 10px);
+  justify-content: center; */
+}
+section .name .profile-image input {
   opacity: 0;
   position: relative;
   top: 40px;
   transform: scale(0.6, 3);
   cursor: pointer;
 }
-section header .profile-image #avatar {
+section .name .profile-image #avatar {
   vertical-align: middle;
   width: 55px;
   height: 55px;
   border-radius: 50%;
 }
-section header .logo {
+section .name .fakelogo {
   display: flex;
   align-items: center;
   color: #eee;
-  font-size: 2rem;
   user-select: none;
   transform: translate(-80px, 10px);
 }
-section .name,
+section .name {
+  display: flex;
+  justify-content: space-evenly;
+  color: #d5d5d5;
+}
 section .friends {
   display: flex;
   justify-content: space-between;
@@ -210,13 +218,13 @@ section .name i,
 section .friends i {
   cursor: pointer;
 }
-section .friends a {
+/* section .friends a {
   background-color: #0070cc;
   padding: .5rem;
   border-radius: 70%;
   height: 25px;
   width: 25px;
-}
+} */
 
 
 section .friends-list {
@@ -253,13 +261,17 @@ section .friends-list .friend i {
   margin-left: 10px;
 }
 section button {
-  position: absolute;
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  /* position: absolute;
   bottom: 0;
-  left: 0;
+  left: 0; */
   background-color: transparent;
   border: 1px solid #eee;
   padding: 5px 10px;
   cursor: pointer;
   color: #eee;
 }
+
 </style>

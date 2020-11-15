@@ -55,7 +55,7 @@
 						<div class="desc">
 						<h4>Workout Title: {{ post.wtitle }}</h4>
 						<p>Workout Details: {{ post.wdescription }}</p>
-						<img :src="post.url" alt="exercise_image" />
+						<img :src="post.url" @error="$event.target.src='https://www.danone.com/content/dam/danone-corp/danone-com/stories/stay-strong-stay-safe-danone.jpg'" />
 					</div>
 					</div>
 
