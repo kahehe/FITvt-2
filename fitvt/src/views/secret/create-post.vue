@@ -112,7 +112,7 @@ export default {
 					}
 				);
 			} else {
-				this.error = "make sure that your title,workout and image is valid";
+				this.error = "Please ensure that you have filled in all the fields and attached an image for your post!";
 			}
 		},
 	},
