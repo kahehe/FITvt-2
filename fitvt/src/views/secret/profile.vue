@@ -8,8 +8,8 @@
 				<h1><span>My Workouts</span></h1>
 				<div class="create-workout">
 					<router-link to="/secret/profile/create-workout">
-						<img src = "@/assets/smallplus.png" />
-						create new workout
+						<img src = "@/assets/smallplus.png" style="width:13px"/>
+						Create New Workout
 					</router-link>
 				</div>
 				<ul>
@@ -38,37 +38,56 @@
 				<br />
 				<div class="create-workout">
 					<router-link to="/secret/create-post">
-						<img src = "@/assets/smallplus.png" />
-						make your post
+						<img src = "@/assets/smallplus.png" style="width:13px" />
+						Create New Post
 					</router-link>
 				</div>
 				<div class="single-post" v-for="(post, index) in myPosts" :key="index">
 					<button style="cursor:pointer" id="delete-btn" @click="deletePost(post.documentId)">
-						Delete
+						Delete Post
 					</button>
 					<div class="profile">
 						<p>{{ post.username }}</p>
 					</div>
 
 					<div class="title_image">
-						<h1>{{ post.title }}</h1>
+						<h1 style="margin-left:100px">{{ post.title }}</h1>
 						<div class="desc">
-							<h4>Workout Title: {{post.wtitle}}</h4>
-							<p>{{ post.wdescription }}</p>
-							<img :src="post.url" alt="exercise_image" />
-						</div>
+						<h4>Workout Title: {{ post.wtitle }}</h4>
+						<p>Workout Details: {{ post.wdescription }}</p>
+						<img :src="post.url" alt="exercise_image" />
 					</div>
+					</div>
+
 					<div class="icons">
-						<img style="cursor:pointer; padding-left:5px; padding-bottom:8px" title="See the comments" src = "@/assets/comment.png" @click="showComments(post.documentId)" />
-						<img style="cursor:pointer; padding-left:5px; padding-bottom:8px" title="Like this post" src = "@/assets/heart.png" @click="like(post.documentId)" :id="post.documentId" />
+						<img style="cursor:pointer; padding-left:8px"
+						title="See the comments" 
+						src = "@/assets/comment.png"
+						@click="showComments(post.documentId)" 
+						/>
+						<img style="cursor:pointer; padding-left:8px"
+						title="Like this post" 
+						src = "@/assets/heart.png"
+						@click="like(post.documentId)" 
+						:id="post.documentId"
+						/>
 						
-						<span
-							style="font-size: 1.4rem; margin-left: 5px"
-							id="like_amount"
-							>{{ likes[post.documentId] }}</span
-						>
-					</div>
+						<span style="font-size:1.4rem;margin-left:5px;" id="like_amount">{{
+							likes[post.documentId]
+						}}</span>
+						<form>
+							<input type="text" placeholder="Your comment..." v-model="comment" style="width: 550px"/>
+							<button @click.prevent="submitComment(post.documentId)" style="margin-left:6px">
+							<img style="height:10px" src = "@/assets/paper-plane.png" />
+							</button>
+						</form>
 				</div>
+				</div>
+
+
+
+
+
 			</section>
 		</main>
 		<aside class="right">
@@ -187,6 +206,42 @@ export default {
 				allowOutsideClick: "true",
 			});
 		},
+
+		async submitComment(docId) {
+      //adding the comment inside comment collection with the same documentId as the post itself
+      //and adding the comments inside an array. the format is array
+			try {
+				//check if there is a document (not the first time that we want to add smth)
+				await window.db
+				.collection("comment")
+				.doc(docId)
+				.update({
+					text: firebase.firestore.FieldValue.arrayUnion({
+					comment: this.comment,
+					name: localStorage.getItem("username"),
+					}),
+				});
+			} catch (err) {
+				//if it is the first time that we want to add smth to the collection
+				if (err.message.slice(0, 21) == "No document to update") {
+				await window.db
+					.collection("comment")
+					.doc(docId)
+					.set({
+					text: [
+						{
+						comment: this.comment,
+						name: localStorage.getItem("username"),
+						},
+					],
+					});
+				}
+			}
+			//clearing the input
+			this.comment = "";
+			},
+
+
 
 		async like(docId) {
 			console.log(docId);
@@ -366,28 +421,28 @@ main section ul li p {
 	border-radius: 50%;
 	margin: 10px 5px 0 10px;
 }
- .single-post .title_image {
+.single-post .title_image {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
- .single-post .title_image h1 {
+.single-post .title_image h1 {
 	margin: 0 10px;
 	font-size: 3rem;
 	max-width: 230px;
 }
- .single-post .title_image .desc {
+.single-post .title_image .desc {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 }
- .single-post .title_image .desc * {
+.single-post .title_image .desc * {
 	margin: 1rem 0;
 }
- .single-post .title_image .desc p {
+.single-post .title_image .desc p {
 	padding: 10px;
 }
- .single-post .title_image .desc img {
+.single-post .title_image .desc img {
 	max-width: 400px;
 	float: right;
 	position: relative;
@@ -400,9 +455,10 @@ main section ul li p {
 	justify-content: flex-start;
 	align-items: center;
 	color: #eee;
+	margin-left: 10px;
 }
  .single-post .icons i {
-	margin-left: 10px;
+	margin-left: 15px;
 	cursor: pointer;
 }
  .single-post form {
@@ -427,6 +483,16 @@ main section ul li p {
 	padding: 5px 10px;
 	cursor: pointer;
 	color: #eee;
+}
+
+#delete-btn {
+margin-top: 20px;
+  background-color: #ec4444;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #eee;
 }
  
 </style>

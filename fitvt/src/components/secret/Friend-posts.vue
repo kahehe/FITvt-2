@@ -42,8 +42,7 @@
         />
         <span style="font-size:1.4rem;margin-left:5px;" id="like_amount">{{likes[post.docId]}}</span>
       <form>
-
-        <input type="text" placeholder="Your comment..." v-model="comment" style="width: 600px"/>
+        <input type="text" placeholder="Your comment..." v-model="comment" style="width: 550px"/>
         <button @click.prevent="submitComment(post.docId)" style="margin-left:6px">
           <img style="height:10px" src = "@/assets/paper-plane.png" />
         </button>
