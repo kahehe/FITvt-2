@@ -10,7 +10,7 @@
           <img src="@/assets/red-login.png" alt="usain-bolt" width="600" margin-bottom="0px" />
           <div class="form">
             <form>
-              <p>{{ error }}</p>
+              <p style="color:red">{{ error }}</p>
               <h3>Email Address</h3>
               <input
                 type="email"
