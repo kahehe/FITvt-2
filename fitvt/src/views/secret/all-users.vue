@@ -88,7 +88,7 @@ export default {
 					localStorage.removeItem("friends");
 					localStorage.setItem("friends", JSON.stringify(array));
 					swal(
-						`from now on ${username} is your new friend (:`,
+						`You added ${username}!`,
 						"",
 						"success"
 					).then(() => {
@@ -104,7 +104,7 @@ export default {
 					JSON.stringify([{ uid, username, url }])
 				);
 				swal(
-					`from now on ${username} is your new friend (:`,
+					`You added ${username}!`,
 					"",
 					"success"
 				).then(() => {
