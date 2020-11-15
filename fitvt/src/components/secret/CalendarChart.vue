@@ -5,7 +5,7 @@
     </div>
 
     <div class="chart">
-      <p>activity</p>
+      <p>Activity</p>
       <trend
         :data="data"
         :gradient="['#008cff', '#008cff', '#008cff']"
@@ -14,12 +14,12 @@
         stroke-width="3"
         id="chart"
       ></trend>
-      <span>last 7 days</span>
+      <span>Last 7 days</span>
     </div>
     <div class="create-workout" v-if="!isInCreatePage">
       <router-link to="/secret/profile/create-workout">
-        <img src = "@/assets/smallplus.png" />
-        create new workout
+        <img src = "@/assets/smallplus.png" style="width:13px"/>
+        Create New Workout
       </router-link>
     </div>
   </section>

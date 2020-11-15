@@ -17,7 +17,7 @@
 						<img
 							:src="
 								user.url ||
-									'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'
+									'https://www.showflipper.com/blog/images/default.jpg'
 							"
 							alt="profile-image"
 							id="avatar"
