@@ -5,7 +5,7 @@
         <img
           :src="
             post.profile_img ||
-            'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'
+            'https://www.showflipper.com/blog/images/default.jpg'
           "
           alt=""
           id="avatar"
@@ -149,7 +149,7 @@ export default {
       //because space in id is not acceptable we have to replace the space with _
       document.querySelector(`#${this.randomId}`).style.color = "#008cff";
       swal({
-        text: "post saved successfully", 
+        text: "Workout saved successfully", 
         icon: "success"});
     },
     async like(docId){
@@ -230,7 +230,7 @@ export default {
 }
  #home .single-post {
 	background-color: #42536e;
-	margin-bottom: 100px;
+	margin-bottom: 30px;
 	border-radius: 20px;
 	position: relative;
 }

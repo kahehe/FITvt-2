@@ -7,7 +7,7 @@
         <img
           :src="
             profileImageUrl ||
-            'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'
+            'https://www.showflipper.com/blog/images/default.jpg'
           "
           alt="avatar"
           id="avatar"
@@ -43,7 +43,7 @@
         <img
           :src="
             friend.url ||
-            'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'
+            'https://www.showflipper.com/blog/images/default.jpg'
           "
           alt="profile-image"
           id="avatar"
@@ -52,8 +52,6 @@
           <span style="font-size: 1rem">
             <strong>{{ friend.username }}</strong>
           </span>
-
-          <br />New York
         </p>
         <img 
           title="unfriend this user" 
@@ -210,13 +208,13 @@ section .name i,
 section .friends i {
   cursor: pointer;
 }
-section .friends a {
+/* section .friends a {
   background-color: #0070cc;
   padding: .5rem;
   border-radius: 70%;
   height: 25px;
   width: 25px;
-}
+} */
 
 
 section .friends-list {
@@ -253,9 +251,12 @@ section .friends-list .friend i {
   margin-left: 10px;
 }
 section button {
-  position: absolute;
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  /* position: absolute;
   bottom: 0;
-  left: 0;
+  left: 0; */
   background-color: transparent;
   border: 1px solid #eee;
   padding: 5px 10px;

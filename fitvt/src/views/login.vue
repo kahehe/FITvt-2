@@ -10,14 +10,14 @@
           <img src="@/assets/red-login.png" alt="usain-bolt" width="600" margin-bottom="0px" />
           <div class="form">
             <form>
-              <p>Email Address</p>
+              <h3>Email Address</h3>
               <input
                 type="email"
                 id="email"
                 placeholder="aaronfit@gmail.com"
                 v-model="email"
               />
-              <p>Password</p>
+              <h3>Password</h3>
               <input
                 type="password"
                 id="password"
@@ -126,8 +126,8 @@ main .container #form-image .form form input {
   height: 35px;
   font-size: 1.2rem;
 }
-main .container #form-image .form form p {
-  font-size: 0.7rem;
+main .container #form-image .form form h3 {
+  /* font-size: 0.7rem; */
   color: white;
   margin-bottom:0px;
 }

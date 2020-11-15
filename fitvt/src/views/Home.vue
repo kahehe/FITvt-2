@@ -12,21 +12,21 @@
             <h1>Join FITvt! <br />It's free.</h1>
             <form>
               <p>{{ error }}</p>
-              <p>Email address</p>
+              <h3>Email address</h3>
               <input
                 type="email"
                 id="email"
                 placeholder="aaronfit@gmail.com"
                 v-model="email"
               />
-              <p>Username</p>
+              <h3>Username</h3>
               <input
                 type="text"
                 id="username"
                 placeholder="aaron"
                 v-model="username"
               />
-              <p>Password</p>
+              <h3>Password</h3>
               <input
                 type="password"
                 id="password"
@@ -69,7 +69,7 @@ export default {
       //username is taken
       if (res.docs[0] && res.docs[0].data().username) {
         this.error =
-          "Please select another username as your current username is already in use ";
+          "Please select another username as your current username is already in use.";
       }
       //username is valid
       else {
@@ -187,8 +187,8 @@ main .container #form-image .form form input::placeholder {
   color: #a2a2a2;
   padding-left: 5px;
 }
-main .container #form-image .form form p {
-  font-size: 0.7rem;
+main .container #form-image .form form h3 {
+  /* font-size: 0.7rem; */
   color: white;
   margin-bottom:0px;
 }

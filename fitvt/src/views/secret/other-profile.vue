@@ -25,7 +25,7 @@
 				<br />
 				<div class="single-post" v-for="(post, index) in posts" :key="index">
 					<div class="profile">
-						<img :src="post.profile_img ||'https://img.icons8.com/color/96/000000/circled-user-male-skin-type-1-2.png'" alt="avatar" id="avatar" />
+						<img :src="post.profile_img ||'https://www.showflipper.com/blog/images/default.jpg'" alt="avatar" id="avatar" />
 						<p>{{ username }}</p>
 					</div>
 
@@ -214,7 +214,7 @@ export default {
 			});
 			//because space in id is not acceptable we have to replace the space with _
 			document.querySelector(`#${this.randomID}`).style.color = "#008cff";
-			swal("Post saved successfully", "", "success");
+			swal("Workout saved successfully", "", "success");
 		},
 
 		openSavedW(workout) {
