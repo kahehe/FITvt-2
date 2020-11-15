@@ -55,7 +55,7 @@
 						<div class="desc">
 						<h4>Workout Title: {{ post.wtitle }}</h4>
 						<p>Workout Details: {{ post.wdescription }}</p>
-						<img :src="post.url" @error="$event.target.src='https://www.danone.com/content/dam/danone-corp/danone-com/stories/stay-strong-stay-safe-danone.jpg'" />
+						<img :src="post.url" @error="$event.target.src='https://i.ibb.co/ZVhRWV0/output-onlinepngtools-24.png'" />
 					</div>
 					</div>
 
@@ -407,7 +407,7 @@ main section ul li p {
 }
 .single-post {
 	background-color: #42536e;
-	margin-bottom: 100px;
+	margin-bottom: 30px;
 	border-radius: 20px;
 	position: relative;
 }

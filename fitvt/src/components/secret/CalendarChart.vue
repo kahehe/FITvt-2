@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     isInCreatePage() {
-      return this.$router.currentRoute.path == "/secret/profile/create-workout";
+      return this.$router.currentRoute.path == "/secret/profile/create-workout" || this.$router.currentRoute.path == "/secret/profile";
     },
   },
   mounted() {
