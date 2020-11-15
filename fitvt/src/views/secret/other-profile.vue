@@ -43,7 +43,7 @@
 						title="Save this workout" 
 						src = "@/assets/save.png"
 						@click="savePost(post, Math.random())"
-						:id="post.title.split(' ')[0] + '_' + (post.title.split(' ')[1] && post.title.split(' ')[1][0])" 
+						:id="randomID" 
 						/>
 						<img style="cursor:pointer; padding-left:8px"
 						title="See the comments" 
@@ -61,7 +61,7 @@
 							likes[post.docId]
 						}}</span>
 						<form>
-							<input type="text" placeholder="Your comment..." v-model="comment" style="width: 550px"/>
+							<input type="text" placeholder="Your comment..." v-model="comment" style="width: 400px"/>
 							<button @click.prevent="submitComment(post.docId)" style="margin-left:6px">
 							<img style="height:10px" src = "@/assets/paper-plane.png" />
 							</button>
@@ -94,6 +94,7 @@ export default {
 			posts: [],
 			profileURL: "",
 			comment: "",
+			randomID: null,
 			//we are getting the comments dynamicly from db
 			comments: [],
 			workouts: [],
@@ -201,22 +202,18 @@ export default {
 		//saving posts
 		async savePost(post) {
 			console.log(post);
+			this.randomID = "a" + post.title.replace(/(?!\w|\s)./g, '').split(" ")[0] + num.toString().split(".")[1];
+			console.log(this.randomID);
 			//post=>{docId,profileImage(owner),uid(owner),url,description,title}
 			await window.db.collection("saved-post").add({
 				uid: localStorage.getItem("UID"),
-				title: post.title,
+				title: post.wtitle,
 				description: post.wdescription,
 				url: post.url,
-				profile_img: post.profile_img,
+				//profile_img: post.profile_img,
 			});
 			//because space in id is not acceptable we have to replace the space with _
-			let id =
-				post.title.split(" ")[0] +
-				"_" +
-				(post.title.split(" ")[1] && post.title.split(" ")[1]) +
-				post.docId[3] +
-				post.docId[4];
-			document.querySelector(`#${id}`).style.color = "#008cff";
+			document.querySelector(`#${this.randomID}`).style.color = "#008cff";
 			swal("Post saved successfully", "", "success");
 		},
 

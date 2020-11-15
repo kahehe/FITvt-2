@@ -42,7 +42,7 @@
         />
         <span style="font-size:1.4rem;margin-left:5px;" id="like_amount">{{likes[post.docId]}}</span>
       <form>
-        <input type="text" placeholder="Your comment..." v-model="comment" style="width: 550px"/>
+        <input type="text" placeholder="Your comment..." v-model="comment" style="width: 400px"/>
         <button @click.prevent="submitComment(post.docId)" style="margin-left:6px">
           <img style="height:10px" src = "@/assets/paper-plane.png" />
         </button>
@@ -136,12 +136,12 @@ export default {
     //saving posts
     async savePost(post, num) {
       console.log(post);
-      this.randomId = post.title.split(" ")[0] + num.toString().split(".")[1];
+      this.randomId = "a" + post.title.replace(/(?!\w|\s)./g, '').split(" ")[0] + num.toString().split(".")[1];
       console.log(this.randomId);
       //post=>{docId,profileImage(owner),uid(owner),url,description,title}
       await window.db.collection("saved-post").add({
         uid: localStorage.getItem("UID"),
-        title: post.title,
+        title: post.wtitle,
         description: post.wdescription,
         url: post.url,
         profile_img: post.profile_img,
