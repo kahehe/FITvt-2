@@ -182,6 +182,13 @@ export default {
     }
   },
   async mounted() {
+    await window.db.collection('like').onSnapshot((snapshot)=>{
+        snapshot.docs.forEach(item=>{
+          this.likes[item.id] = item.data().text.length
+        })
+      });
+    console.log(this.likes);
+
     let friends_array = JSON.parse(localStorage.getItem("friends"));
     let uids = [];
     //pushing all of the uids in friends array to uids array
@@ -206,13 +213,8 @@ export default {
           })
         );
       });
-          await window.db.collection('like').onSnapshot((snapshot)=>{
-        snapshot.docs.forEach(item=>{
-          this.likes[item.id] = item.data().text.length
-        })
-      });
-      console.log(this.likes);
-      this.$forceUpdate()
+      
+    this.$forceUpdate()
   },
 
 };
