@@ -5,9 +5,9 @@
 		<main>
 			<sNavBar />
 			<section id="all-users">
-				<h3>all users</h3>
+				<h3>All Users</h3>
 				<br /><br /><br />
-				<input type="text" placeholder="search..." v-model="search" />
+				<input type="text" placeholder="Search" v-model="search" />
 				<div
 					class="single-user"
 					v-for="(user, index) in filteredUsers"
