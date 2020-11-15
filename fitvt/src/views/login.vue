@@ -10,6 +10,7 @@
           <img src="@/assets/red-login.png" alt="usain-bolt" width="600" margin-bottom="0px" />
           <div class="form">
             <form>
+              <p>{{ error }}</p>
               <h3>Email Address</h3>
               <input
                 type="email"
@@ -45,17 +46,22 @@ export default {
     return {
       email: "",
       password: "",
+      error: ""
     };
   },
   methods: {
     async login() {
-      let res = await firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password);
-      let uid = res.user.uid;
-      this.$store.commit("setUID", uid);
-      localStorage.setItem("UID", uid);
-      this.$router.push("/secret/home");
+      try{
+        let res = await firebase
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password);
+        let uid = res.user.uid;
+        this.$store.commit("setUID", uid);
+        localStorage.setItem("UID", uid);
+        this.$router.push("/secret/home");
+      } catch (err) {
+        this.error = err.message;
+      }
     },
   },
 };
