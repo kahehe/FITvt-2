@@ -200,7 +200,7 @@ export default {
 			});
 		},
 		//saving posts
-		async savePost(post) {
+		async savePost(post, num) {
 			console.log(post);
 			this.randomID = "a" + post.title.replace(/(?!\w|\s)./g, '').split(" ")[0] + num.toString().split(".")[1];
 			console.log(this.randomID);
