@@ -7,6 +7,8 @@ export default new Vuex.Store({
   state: {
     UID: null,
     username: null,
+    chattingUsername:null,
+    activity:[]
   },
   mutations: {
     setUID(state, token) {
