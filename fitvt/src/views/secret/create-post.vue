@@ -123,9 +123,20 @@ export default {
       .collection("workout")
       .where("uid", "==", localStorage.getItem("UID"))
       .get();
+    let res2 = await window.db
+      .collection("saved-post")
+      .where("uid", "==", localStorage.getItem("UID"))
+      .get();
     res.docs.forEach((workout) => {
       this.workouts.push(workout.data());
     });
+    res2.docs.forEach((workout) => {
+      this.workouts.push(workout.data());
+    });
+	//remove duplicates
+    this.workouts = this.workouts.filter(
+      (v, i, a) => a.findIndex((t) => t.title === v.title) === i
+    );
   },
 };
 </script>
