@@ -11,9 +11,7 @@ FITvt is an online web-based application designed to allow fitness enthusiasts t
 
 * [Comparison to Existing/Related Apps](#how-are-we-different-from-similar-platforms)
 
-* [Web-scraping related Python codes and CSV/JSON files](https://github.com/team1782/tf/tree/master/toilet%20data)
-
-* [User Guide](https://github.com/hazletnj/tf/blob/master/docs/userguide.md)
+* [User Guide](https://github.com/BT3103-FITvt/FITvt/blob/main/userguide.md)
 
 
 ## Motivation
