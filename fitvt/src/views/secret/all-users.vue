@@ -77,11 +77,6 @@ export default {
 				if (array.some((user) => user.uid === uid)) {
 					//user is duplicated so we cant add to storage
 					console.log("user is already in storage");
-					swal(
-						`${username} is already your friend!`,
-						"",
-						"info"
-					);
 				} else {
 					//this user is new so we can add it
 					array.push({ uid, username, url });

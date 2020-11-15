@@ -114,7 +114,6 @@ export default {
 		return {
 			loading: true,
 			username: "",
-			comment: "",
 			posts: [],
 			savedWorkouts: [],
 			myPosts: [],
